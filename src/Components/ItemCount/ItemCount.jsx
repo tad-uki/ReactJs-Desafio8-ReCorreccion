@@ -18,7 +18,6 @@ export default function ItemCount({ stock, initial, onAdd }){
 
     function onClicked(){
         onAdd(count)
-        setClicked(true)
     }
 
     return(
@@ -33,16 +32,11 @@ export default function ItemCount({ stock, initial, onAdd }){
                 <button className="buttonGen" onClick={subtract} disabled={count === initial}> - </button>
             </section>
 
-            {
-                clicked?
-                    <section className="finishSection">
-                        <button className="buttonFinish"> <Link to={"/cart"}> Terminar mi Compra </Link> </button>
-                    </section>
-                :
-                    <section className="finishSection">
-                        <button className="buttonFinish" onClick={onClicked}> Agregar al Carrito </button>
-                    </section>
-            }
+   
+            <section className="finishSection">
+                <button className="buttonFinish" onClick={onClicked}> Agregar al Carrito </button>
+            </section>
+            
         </main>
     );
 }
